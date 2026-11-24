@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0c0e">
+<meta name="description" content="Auto Serwis u Genia — warsztat samochodowy w Miliczu.">
+<title>Auto Serwis u Genia | Milicz</title>
+<style>
+:root{--bg:#0b0c0e;--surface:#131519;--surface2:#191c21;--line:#292d34;--yellow:#ffd329;--text:#f5f6f7;--muted:#a9afb9;--max:1160px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#0b0c0eeF;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.3px;line-height:1.1}
+.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--yellow);color:#111;font-size:22px}
+.brand span span{color:var(--yellow)}
+.navlinks{display:flex;align-items:center;gap:26px;color:#d5d8dd;font-size:14px}
+.navlinks a:hover{color:var(--yellow)}
+.navright{display:flex;align-items:center;gap:12px}
+.lang-mini{background:#17191d;border:1px solid #373b43;border-radius:8px;color:var(--text);padding:9px 10px;max-width:125px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--yellow);color:#111;padding:13px 20px;border-radius:9px;font-weight:850;border:1px solid var(--yellow);transition:transform .18s,box-shadow .18s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px #ffd32925}
+.btn-secondary{border:1px solid #454a53;background:#17191d;color:var(--text)}
+.btn-secondary:hover{border-color:var(--yellow);color:var(--yellow)}
+.hero{position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 78% 40%,#4a3a10 0%,#211d13 24%,transparent 56%),linear-gradient(115deg,#0b0c0e 10%,#101114 60%,#19160e)}
+.hero:after{content:"";position:absolute;right:-4%;top:12%;width:49%;height:76%;border:1px solid #ffd32920;border-radius:50%;transform:rotate(-17deg);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:40px;padding:76px 0;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--yellow);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:20px}
+.eyebrow:before{content:"";width:28px;height:2px;background:var(--yellow)}
+h1{font-size:clamp(42px,6.1vw,76px);line-height:.99;letter-spacing:-2.7px;margin-bottom:24px;max-width:700px}
+h1 em{font-style:normal;color:var(--yellow)}
+.hero-copy{font-size:18px;color:#c0c4cb;max-width:570px;margin-bottom:30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.proof{display:flex;gap:26px;flex-wrap:wrap;margin-top:42px}
+.proof div{font-size:12px;color:var(--muted)}
+.proof strong{display:block;color:var(--text);font-size:15px;margin-bottom:2px}
+.hero-art{min-height:390px;position:relative;display:grid;place-items:center}
+.art-ring{width:min(390px,100%);aspect-ratio:1;border-radius:50%;border:1px solid #ffd3294d;display:grid;place-items:center;box-shadow:0 0 90px #ffd3290c,inset 0 0 80px #ffd3290a;position:relative}
+.art-ring:before,.art-ring:after{content:"";position:absolute;border:1px solid #ffd32920;border-radius:50%}
+.art-ring:before{inset:22px}.art-ring:after{inset:48px}
+.car{font-size:clamp(105px,16vw,190px);filter:drop-shadow(0 25px 28px #0008);transform:scaleX(-1);z-index:1}
+.art-chip{position:absolute;background:#17191d;border:1px solid #343840;border-radius:12px;padding:13px 16px;box-shadow:0 14px 30px #0005;font-size:12px;color:var(--muted)}
+.art-chip strong{display:block;color:var(--text);font-size:14px}
+.chip-one{top:13%;right:-1%}.chip-two{bottom:13%;left:-2%}
+.section{padding:88px 0}
+.section-head{max-width:700px;margin-bottom:34px}
+.kicker{font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:var(--yellow);font-weight:850}
+h2{font-size:clamp(30px,4vw,47px);line-height:1.12;letter-spacing:-1px;margin:11px 0 14px}
+.lead{color:var(--muted);font-size:16px;max-width:650px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,#17191d,#111215);border:1px solid var(--line);padding:27px;border-radius:15px;min-height:210px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#5c512b}
+.iconbox{width:49px;height:49px;display:grid;place-items:center;border-radius:12px;background:#ffd32915;color:var(--yellow);font-size:23px;margin-bottom:20px}
+.card h3{font-size:18px;margin-bottom:9px}.card p{font-size:14px;color:var(--muted)}
+.about{background:#111316;border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px}
+.checks{list-style:none;display:grid;gap:13px;margin-top:24px;color:#e3e5e8}
+.checks li:before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#ffd3291c;color:var(--yellow);font-weight:900;margin-right:11px}
+.feature-panel{position:relative;overflow:hidden;min-height:310px;border-radius:18px;border:1px solid #39352a;background:radial-gradient(ellipse at 80% 20%,#6b5114 0%,transparent 45%),linear-gradient(145deg,#202126,#111215);padding:35px;display:flex;flex-direction:column;justify-content:space-between}
+.feature-panel:after{content:"⚙";position:absolute;right:-22px;bottom:-70px;font-size:260px;color:#ffd3290b}
+.feature-panel .mini-label{color:var(--yellow);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+.feature-panel strong{font-size:clamp(30px,4vw,45px);line-height:1.05;max-width:300px;z-index:1}
+.feature-panel p{color:var(--muted);max-width:300px;z-index:1}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.step{padding:24px;border-top:2px solid var(--yellow);background:var(--surface)}
+.step-num{color:var(--yellow);font-size:12px;font-weight:900;letter-spacing:2px}.step h3{margin:10px 0 7px}.step p{font-size:14px;color:var(--muted)}
+.contact{background:linear-gradient(120deg,#19170f,#0b0c0e 70%);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr .8fr;gap:30px;margin-top:30px}
+.contact-card{background:#15171b;border:1px solid #30343b;border-radius:16px;padding:30px}
+.contact-card h3{font-size:21px;margin-bottom:16px}
+.contact-line{padding:14px 0;border-bottom:1px solid var(--line);color:#e3e5e8}
+.contact-line:last-child{border-bottom:0}.contact-line small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:3px}
+.small-note{font-size:12px;color:var(--muted);margin-top:16px}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hours-list{display:grid;gap:5px;margin-top:5px;color:#e3e5e8;font-size:14px}
+.hours-list div{display:flex;justify-content:space-between;gap:16px}
+.hours-list span:last-child{font-weight:700;color:var(--text)}
+.map-block{margin-top:30px;background:#15171b;border:1px solid #30343b;border-radius:16px;overflow:hidden}
+.map-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 28px}
+.map-head h3{font-size:21px;margin:4px 0 6px}
+.map-head p{color:var(--muted);font-size:14px;max-width:680px}
+.map-frame{display:block;width:100%;height:390px;border:0;background:#202329}
+.map-note{padding:12px 28px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+@media(max-width:560px){.map-head{align-items:flex-start;flex-direction:column;padding:21px}.map-frame{height:320px}.map-note{padding:12px 21px}}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.lang-overlay{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at 50% 20%,#302710 0%,#101114 48%,#08090a 100%);display:flex;align-items:center;justify-content:center;padding:22px}
+.lang-modal{width:min(720px,100%);text-align:center}
+.lang-logo{width:68px;height:68px;display:grid;place-items:center;background:var(--yellow);color:#101010;border-radius:19px;font-size:33px;margin:0 auto 24px}
+.lang-modal .kicker{margin-bottom:10px}
+.lang-modal h2{font-size:clamp(30px,5vw,47px);margin-bottom:12px}
+.lang-desc{color:var(--muted);margin:0 auto 28px;max-width:480px}
+.lang-options{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.lang-option{background:#17191d;border:1px solid #363a42;color:var(--text);border-radius:13px;padding:20px 10px;cursor:pointer;transition:.2s}
+.lang-option:hover,.lang-option:focus-visible{border-color:var(--yellow);background:#222016;transform:translateY(-3px);outline:none}
+.flag{display:block;font-size:31px;margin-bottom:8px}.lang-option strong{display:block;font-size:15px}.lang-option small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.lang-foot{color:#777e89;font-size:12px;margin-top:22px}
+body.locked{overflow:hidden}
+@media(max-width:850px){.navlinks{gap:14px}.navlinks a:nth-child(2){display:none}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:300px}.art-ring{width:300px}.car{font-size:145px}.chip-one{right:8%}.chip-two{left:7%}.cards{grid-template-columns:repeat(2,1fr)}.about-grid,.contact-grid{grid-template-columns:1fr}.feature-panel{min-height:270px}}
+@media(max-width:560px){.wrap{width:calc(100% - 30px)}.nav{min-height:68px}.brand{font-size:12px}.brand-mark{width:36px;height:36px}.navlinks{display:none}.navright .btn{padding:10px 12px;font-size:12px}.lang-mini{max-width:100px;padding:8px 6px;font-size:12px}.hero-grid{padding:62px 0 50px;gap:8px}.hero-copy{font-size:16px}.hero-art{min-height:250px}.art-ring{width:240px}.car{font-size:118px}.chip-one{right:0;top:7%}.chip-two{left:0;bottom:5%}.section{padding:62px 0}.cards,.steps{grid-template-columns:1fr}.card{min-height:unset}.lang-options{grid-template-columns:repeat(2,1fr)}.lang-option{padding:17px 8px}.lang-modal h2{font-size:31px}.contact-card{padding:22px}}
+
+/* Customer reviews */
+.reviews-section{background:#111316;border-block:1px solid var(--line)}
+.review-summary{display:flex;align-items:center;gap:12px;margin-top:18px;color:var(--muted);font-size:14px}
+.review-summary strong{color:var(--text);font-size:17px}
+.review-stars{color:#ffb21c;letter-spacing:2px;font-size:20px;white-space:nowrap}
+.review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.review-card{background:linear-gradient(145deg,#191c21,#121417);border:1px solid var(--line);border-radius:15px;padding:25px;min-width:0}
+.review-person{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.review-avatar{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:#343b58;color:#fff;font-weight:800;font-size:17px;flex:0 0 auto}
+.review-name{font-weight:800}
+.review-source{font-size:12px;color:var(--muted)}
+.review-card .review-stars{margin:5px 0 10px}
+.review-text{color:#e7e9ec;font-size:15px;line-height:1.65}
+.review-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.review-tag{border:1px solid #393e47;border-radius:8px;padding:6px 10px;color:var(--muted);font-size:12px}
+.review-tag strong{color:var(--text);font-weight:700}
+@media(max-width:650px){.review-grid{grid-template-columns:1fr}.review-card{padding:21px}}
+
+</style>
+</head>
+<body class="locked">
+<div class="lang-overlay" id="languageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="lang-modal">
+    <div class="lang-logo">⚙</div>
+    <div class="kicker">AUTO SERWIS U GENIA</div>
+    <h2 id="gateTitle">Wybierz język / Choose your language</h2>
+    <p class="lang-desc" id="gateDesc">Wybierz język, aby przejść do strony warsztatu.</p>
+    <div class="lang-options">
+      <button class="lang-option" data-lang="pl"><span class="flag">🇵🇱</span><strong>Polski</strong><small>Polski język</small></button>
+      <button class="lang-option" data-lang="ru"><span class="flag">🇷🇺</span><strong>Русский</strong><small>Русский язык</small></button>
+      <button class="lang-option" data-lang="uk"><span class="flag">🇺🇦</span><strong>Українська</strong><small>Українська мова</small></button>
+      <button class="lang-option" data-lang="en"><span class="flag">🇬🇧</span><strong>English</strong><small>English language</small></button>
+    </div>
+    <p class="lang-foot">Auto Serwis u Genia · Milicz</p>
+  </div>
+</div>
+
+<header>
+  <nav class="nav wrap">
+    <a class="brand" href="#start"><span class="brand-mark">⚙</span><span>AUTO SERWIS<br><span>U GENIA</span></span></a>
+    <div class="navlinks">
+      <a href="#services" data-i18n="navServices">Usługi</a><a href="#about" data-i18n="navAbout">O nas</a><a href="#contact" data-i18n="navContact">Kontakt</a>
+    </div>
+    <div class="navright">
+      <select class="lang-mini" id="languageSelect" aria-label="Choose language">
+        <option value="pl">🇵🇱 Polski</option><option value="ru">🇷🇺 Русский</option><option value="uk">🇺🇦 Українська</option><option value="en">🇬🇧 English</option>
+      </select>
+      <a class="btn" href="#contact" data-i18n="navBook">Umów wizytę ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="start">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">Warsztat samochodowy · Milicz</div>
+      <h1 data-i18n-html="heroTitle">Twoje auto.<br><em>Nasza sprawa.</em></h1>
+      <p class="hero-copy" data-i18n="heroCopy">Rzetelny serwis samochodowy, fachowe podejście i jasne zasady. Zadbaj o swoje auto razem z nami.</p>
+      <div class="actions"><a class="btn" href="#contact" data-i18n="heroCta">Umów wizytę ↗</a><a class="btn btn-secondary" href="#services" data-i18n="heroMore">Poznaj nasze usługi ↓</a></div>
+      <div class="proof"><div><strong data-i18n="proof1">Fachowe podejście</strong><span data-i18n="proof1b">Dbałość o szczegóły</span></div><div><strong data-i18n="proof2">Jasne zasady</strong><span data-i18n="proof2b">Bez niespodzianek</span></div><div><strong data-i18n="proof3">Lokalny warsztat</strong><span data-i18n="proof3b">Milicz i okolice</span></div></div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="art-ring"><div class="car">🚘</div></div><div class="art-chip chip-one"><strong data-i18n="chip1">Z troską o auto</strong><span data-i18n="chip1b">Każdy szczegół ma znaczenie</span></div><div class="art-chip chip-two"><strong data-i18n="chip2">Serwis i naprawy</strong><span data-i18n="chip2b">Praktyczne rozwiązania</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker" data-i18n="servicesKicker">Nasze usługi</div><h2 data-i18n="servicesTitle">Dobra opieka nad Twoim samochodem</h2><p class="lead" data-i18n="servicesLead">Od regularnej obsługi po szukanie przyczyny usterki — porozmawiajmy o tym, czego potrzebuje Twoje auto.</p></div>
+    <div class="cards">
+      <article class="card"><div class="iconbox">🔧</div><h3 data-i18n="s1t">Naprawy samochodowe</h3><p data-i18n="s1p">Pomoc przy usterkach i problemach eksploatacyjnych.</p></article>
+      <article class="card"><div class="iconbox">⚙️</div><h3 data-i18n="s2t">Przeglądy i serwis</h3><p data-i18n="s2p">Regularna kontrola auta i podstawowa obsługa.</p></article>
+      <article class="card"><div class="iconbox">🔍</div><h3 data-i18n="s3t">Diagnostyka usterek</h3><p data-i18n="s3p">Sprawdzanie objawów i szukanie źródła problemu.</p></article>
+      <article class="card"><div class="iconbox">🛞</div><h3 data-i18n="s4t">Kontrola podzespołów</h3><p data-i18n="s4p">Ocena stanu ważnych elementów samochodu.</p></article>
+      <article class="card"><div class="iconbox">🧰</div><h3 data-i18n="s5t">Obsługa eksploatacyjna</h3><p data-i18n="s5p">Praktyczne prace serwisowe dopasowane do potrzeb auta.</p></article>
+      <article class="card"><div class="iconbox">🤝</div><h3 data-i18n="s6t">Indywidualne podejście</h3><p data-i18n="s6p">Najpierw omawiamy problem, potem ustalamy kolejne kroki.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div><div class="kicker" data-i18n="aboutKicker">Dlaczego my</div><h2 data-i18n="aboutTitle">Serwis oparty na zaufaniu</h2><p class="lead" data-i18n="aboutLead">Sprawny samochód ułatwia każdy dzień. Stawiamy na staranność, kontakt i praktyczne rozwiązania.</p><ul class="checks"><li data-i18n="check1">Jasne omówienie problemu</li><li data-i18n="check2">Rzetelne podejście do napraw</li><li data-i18n="check3">Kontakt bez zbędnych komplikacji</li></ul></div>
+    <div class="feature-panel"><div class="mini-label" data-i18n="panelKicker">Twój lokalny warsztat</div><strong data-i18n="panelTitle">Jedź dalej z pewnością.</strong><p data-i18n="panelText">Skontaktuj się z nami i opowiedz, czego potrzebuje Twoje auto.</p></div>
+  </div>
+</section>
+
+
+<section class="section reviews-section" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-i18n="reviewsKicker">Opinie klientów</div>
+      <h2 data-i18n="reviewsTitle">Co mówią nasi klienci?</h2>
+      <p class="lead" data-i18n="reviewsLead">Dziękujemy za zaufanie i każdą pozostawioną opinię.</p>
+      <div class="review-summary"><span class="review-stars" aria-label="5 na 5">★★★★★</span><strong data-i18n="reviewsCount">2 opinie</strong></div>
+    </div>
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="review-person"><div class="review-avatar" aria-hidden="true">M</div><div><div class="review-name">Marcin Wróbel</div><div class="review-source" data-i18n="googleReview">Opinia Google</div></div></div>
+        <div class="review-stars" aria-label="5 na 5">★★★★★</div>
+        <p class="review-text" lang="pl">Wymiana opon , oleju od ręki</p>
+      </article>
+      <article class="review-card">
+        <div class="review-person"><div class="review-avatar" aria-hidden="true">Ł</div><div><div class="review-name">Łukasz Blaszak</div><div class="review-source" data-i18n="googleReview">Opinia Google</div></div></div>
+        <div class="review-stars" aria-label="5 na 5">★★★★★</div>
+        <p class="review-text" lang="pl">Szybkie i fachowe podejście do sprawy. Z oponami poszło bardzo szybko POLECAM BARDZO</p>
+        <div class="review-meta"><span class="review-tag"><strong data-i18n="reviewPrice">Ocena ceny:</strong> <span data-i18n="reviewPriceValue">Świetna cena</span></span><span class="review-tag"><strong data-i18n="reviewService">Usługa:</strong> <span data-i18n="reviewServiceValue">Wymiana opon</span></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap"><div class="section-head"><div class="kicker" data-i18n="howKicker">Prosto i wygodnie</div><h2 data-i18n="howTitle">Jak umówić wizytę?</h2></div>
+    <div class="steps"><div class="step"><div class="step-num">01 / <span data-i18n="stepOne">KONTAKT</span></div><h3 data-i18n="step1t">Opowiedz o problemie</h3><p data-i18n="step1p">Zadzwoń lub napisz, czego dotyczy sprawa.</p></div><div class="step"><div class="step-num">02 / <span data-i18n="stepTwo">TERMIN</span></div><h3 data-i18n="step2t">Ustal dogodny termin</h3><p data-i18n="step2p">Wspólnie ustalimy, kiedy możesz przyjechać.</p></div><div class="step"><div class="step-num">03 / <span data-i18n="stepThree">SERWIS</span></div><h3 data-i18n="step3t">Zajmiemy się autem</h3><p data-i18n="step3p">Omówimy dalsze kroki i możliwe rozwiązania.</p></div></div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap"><div class="kicker" data-i18n="contactKicker">Porozmawiajmy</div><h2 data-i18n="contactTitle">Twój samochód potrzebuje serwisu?</h2><p class="lead" data-i18n="contactLead">Skontaktuj się z warsztatem, aby zapytać o usługę i ustalić termin.</p>
+    <div class="contact-grid">
+      <div class="contact-card"><h3>Auto Serwis u Genia</h3><div class="contact-line"><small data-i18n="locationLabel">Lokalizacja</small>Milicz, Polska</div><div class="contact-line"><small data-i18n="phoneLabel">Telefon</small><a href="tel:+48735678221" style="font-weight:700;color:var(--text)">+48 735 678 221</a></div><div class="contact-line"><small data-i18n="hoursLabel">Godziny otwarcia</small><div class="hours-list"><div><span data-i18n="weekdays">Poniedziałek–piątek</span><span>08:00–18:00</span></div><div><span data-i18n="saturday">Sobota</span><span>08:00–16:00</span></div><div><span data-i18n="sunday">Niedziela</span><span data-i18n="closed">Zamknięte</span></div></div></div><p class="small-note" data-i18n="contactNote">Godziny otwarcia: poniedziałek–piątek 08:00–18:00, sobota 08:00–16:00, niedziela zamknięte.</p></div>
+      <div class="contact-card"><h3 data-i18n="contactBoxTitle">Zacznijmy od rozmowy</h3><p class="lead" data-i18n="contactBoxText">Masz pytanie dotyczące naprawy? Wybierz kontakt z warsztatem.</p><div class="contact-actions"><a class="btn" href="mailto:?subject=Auto%20Serwis%20u%20Genia" data-i18n="emailBtn">Napisz e-mail ↗</a><a class="btn btn-secondary" href="tel:+48735678221" data-i18n="callBtn">Zadzwoń ☎</a></div><p class="small-note" data-i18n="emailNote">Link e-mailowy pozostaje bez zmian.</p></div>
+    </div>
+    <div class="map-block">
+      <div class="map-head"><div><div class="kicker" data-i18n="mapKicker">Znajdź nas</div><h3 data-i18n="mapTitle">Mapa dojazdu</h3><p data-i18n="mapDesc">Otwórz mapę, aby sprawdzić lokalizację i wyznaczyć trasę do Auto Serwis u Genia w Miliczu.</p></div><a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Serwis+u+Genia%2C+Milicz%2C+Polska" target="_blank" rel="noopener noreferrer" data-i18n="mapOpen">Otwórz w Google Maps ↗</a></div>
+      <iframe class="map-frame" title="Google Maps — Auto Serwis u Genia, Milicz" src="https://maps.google.com/maps?q=Auto%20Serwis%20u%20Genia%2C%20Milicz%2C%20Polska&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <p class="map-note" data-i18n="mapNote">Mapa wyszukuje warsztat w Miliczu. Aby wskazać dokładny punkt, potrzebny jest pełny adres ulicy i numer.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap foot"><div>© <span id="year"></span> Auto Serwis u Genia · Milicz</div><div data-i18n="footerText">Warsztat samochodowy</div></div></footer>
+
+<script>
+const translations = {
+pl:{reviewsKicker:"Opinie klientów",reviewsTitle:"Co mówią nasi klienci?",reviewsLead:"Dziękujemy za zaufanie i każdą pozostawioną opinię.",reviewsCount:"2 opinie",googleReview:"Opinia Google",reviewPrice:"Ocena ceny:",reviewPriceValue:"Świetna cena",reviewService:"Usługa:",reviewServiceValue:"Wymiana opon",
+gateDesc:"Wybierz język, aby przejść do strony warsztatu.",mapKicker:"Znajdź nas",mapTitle:"Mapa dojazdu",mapDesc:"Otwórz mapę, aby sprawdzić lokalizację i wyznaczyć trasę do Auto Serwis u Genia w Miliczu.",mapOpen:"Otwórz w Google Maps ↗",mapNote:"Mapa wyszukuje warsztat w Miliczu. Aby wskazać dokładny punkt, potrzebny jest pełny adres ulicy i numer.",navServices:"Usługi",navAbout:"O nas",navContact:"Kontakt",navBook:"Umów wizytę ↗",eyebrow:"Warsztat samochodowy · Milicz",heroTitle:'Twoje auto.<br><em>Nasza sprawa.</em>',heroCopy:"Rzetelny serwis samochodowy, fachowe podejście i jasne zasady. Zadbaj o swoje auto razem z nami.",heroCta:"Umów wizytę ↗",heroMore:"Poznaj nasze usługi ↓",proof1:"Fachowe podejście",proof1b:"Dbałość o szczegóły",proof2:"Jasne zasady",proof2b:"Bez niespodzianek",proof3:"Lokalny warsztat",proof3b:"Milicz i okolice",chip1:"Z troską o auto",chip1b:"Każdy szczegół ma znaczenie",chip2:"Serwis i naprawy",chip2b:"Praktyczne rozwiązania",servicesKicker:"Nasze usługi",servicesTitle:"Dobra opieka nad Twoim samochodem",servicesLead:"Od regularnej obsługi po szukanie przyczyny usterki — porozmawiajmy o tym, czego potrzebuje Twoje auto.",s1t:"Naprawy samochodowe",s1p:"Pomoc przy usterkach i problemach eksploatacyjnych.",s2t:"Przeglądy i serwis",s2p:"Regularna kontrola auta i podstawowa obsługa.",s3t:"Diagnostyka usterek",s3p:"Sprawdzanie objawów i szukanie źródła problemu.",s4t:"Kontrola podzespołów",s4p:"Ocena stanu ważnych elementów samochodu.",s5t:"Obsługa eksploatacyjna",s5p:"Praktyczne prace serwisowe dopasowane do potrzeb auta.",s6t:"Indywidualne podejście",s6p:"Najpierw omawiamy problem, potem ustalamy kolejne kroki.",aboutKicker:"Dlaczego my",aboutTitle:"Serwis oparty na zaufaniu",aboutLead:"Sprawny samochód ułatwia każdy dzień. Stawiamy na staranność, kontakt i praktyczne rozwiązania.",check1:"Jasne omówienie problemu",check2:"Rzetelne podejście do napraw",check3:"Kontakt bez zbędnych komplikacji",panelKicker:"Twój lokalny warsztat",panelTitle:"Jedź dalej z pewnością.",panelText:"Skontaktuj się z nami i opowiedz, czego potrzebuje Twoje auto.",howKicker:"Prosto i wygodnie",howTitle:"Jak umówić wizytę?",stepOne:"KONTAKT",stepTwo:"TERMIN",stepThree:"SERWIS",step1t:"Opowiedz o problemie",step1p:"Zadzwoń lub napisz, czego dotyczy sprawa.",step2t:"Ustal dogodny termin",step2p:"Wspólnie ustalimy, kiedy możesz przyjechać.",step3t:"Zajmiemy się autem",step3p:"Omówimy dalsze kroki i możliwe rozwiązania.",contactKicker:"Porozmawiajmy",contactTitle:"Twój samochód potrzebuje serwisu?",contactLead:"Skontaktuj się z warsztatem, aby zapytać o usługę i ustalić termin.",locationLabel:"Lokalizacja",phoneLabel:"Telefon",phonePlaceholder:"+48 735 678 221",hoursLabel:"Godziny otwarcia",hoursPlaceholder:"08:00–18:00",contactNote:"Przed publikacją uzupełnij numer telefonu i aktualne godziny otwarcia.",contactBoxTitle:"Zacznijmy od rozmowy",contactBoxText:"Masz pytanie dotyczące naprawy? Wybierz kontakt z warsztatem.",emailBtn:"Napisz e-mail ↗",emailNote:"Link e-mailowy można uzupełnić o właściwy adres warsztatu.",footerText:"Warsztat samochodowy",callBtn:"Zadzwoń ☎",weekdays:"Poniedziałek–piątek",saturday:"Sobota",sunday:"Niedziela",closed:"Zamknięte",contactNote:"Godziny otwarcia: poniedziałek–piątek 08:00–18:00, sobota 08:00–16:00, niedziela zamknięte."
+},
+ru:{reviewsKicker:"Отзывы клиентов",reviewsTitle:"Что говорят наши клиенты?",reviewsLead:"Спасибо за доверие и каждый оставленный отзыв.",reviewsCount:"2 отзыва",googleReview:"Отзыв в Google",reviewPrice:"Оценка цены:",reviewPriceValue:"Отличная цена",reviewService:"Услуга:",reviewServiceValue:"Замена шин",
+gateDesc:"Выберите язык, чтобы перейти на сайт автосервиса.",mapKicker:"Как нас найти",mapTitle:"Карта проезда",mapDesc:"Откройте карту, чтобы посмотреть расположение и построить маршрут до Auto Serwis u Genia в Миличе.",mapOpen:"Открыть в Google Maps ↗",mapNote:"На карте выполняется поиск автосервиса в Миличе. Для точной отметки нужны название улицы и номер дома.",navServices:"Услуги",navAbout:"О нас",navContact:"Контакты",navBook:"Записаться ↗",eyebrow:"Автосервис · Милич",heroTitle:'Ваш автомобиль.<br><em>Наша забота.</em>',heroCopy:"Надёжный автосервис, профессиональный подход и понятные условия. Позаботьтесь о своём автомобиле вместе с нами.",heroCta:"Записаться ↗",heroMore:"Наши услуги ↓",proof1:"Профессиональный подход",proof1b:"Внимание к деталям",proof2:"Понятные условия",proof2b:"Без сюрпризов",proof3:"Местный автосервис",proof3b:"Милич и окрестности",chip1:"Забота об авто",chip1b:"Каждая деталь важна",chip2:"Сервис и ремонт",chip2b:"Практичные решения",servicesKicker:"Наши услуги",servicesTitle:"Забота о вашем автомобиле",servicesLead:"От регулярного обслуживания до поиска причины неисправности — обсудим, что нужно вашему автомобилю.",s1t:"Ремонт автомобилей",s1p:"Помощь при поломках и эксплуатационных проблемах.",s2t:"Осмотр и обслуживание",s2p:"Регулярная проверка автомобиля и базовое обслуживание.",s3t:"Диагностика неисправностей",s3p:"Проверка симптомов и поиск причины проблемы.",s4t:"Проверка узлов",s4p:"Оценка состояния важных элементов автомобиля.",s5t:"Техническое обслуживание",s5p:"Практические сервисные работы с учётом потребностей авто.",s6t:"Индивидуальный подход",s6p:"Сначала обсуждаем проблему, затем определяем дальнейшие шаги.",aboutKicker:"Почему мы",aboutTitle:"Сервис, основанный на доверии",aboutLead:"Исправный автомобиль облегчает каждый день. Мы ценим аккуратность, общение и практичные решения.",check1:"Понятное объяснение проблемы",check2:"Ответственный подход к ремонту",check3:"Общение без лишних сложностей",panelKicker:"Ваш местный автосервис",panelTitle:"Продолжайте путь уверенно.",panelText:"Свяжитесь с нами и расскажите, что требуется вашему автомобилю.",howKicker:"Просто и удобно",howTitle:"Как записаться?",stepOne:"СВЯЗЬ",stepTwo:"ВРЕМЯ",stepThree:"СЕРВИС",step1t:"Расскажите о проблеме",step1p:"Позвоните или напишите, что случилось.",step2t:"Выберите удобное время",step2p:"Вместе согласуем, когда вам удобно приехать.",step3t:"Займёмся автомобилем",step3p:"Обсудим дальнейшие шаги и возможные решения.",contactKicker:"Давайте поговорим",contactTitle:"Вашему автомобилю нужен сервис?",contactLead:"Свяжитесь с мастерской, чтобы узнать об услуге и договориться о времени.",locationLabel:"Адрес",phoneLabel:"Телефон",phonePlaceholder:"+48 735 678 221",hoursLabel:"Часы работы",hoursPlaceholder:"08:00–18:00",contactNote:"Перед публикацией укажите номер телефона и актуальные часы работы.",contactBoxTitle:"Начнём с разговора",contactBoxText:"Есть вопрос по ремонту? Свяжитесь с автосервисом.",emailBtn:"Написать e-mail ↗",emailNote:"В ссылку электронной почты можно добавить адрес мастерской.",footerText:"Автосервис",callBtn:"Позвонить ☎",weekdays:"Понедельник–пятница",saturday:"Суббота",sunday:"Воскресенье",closed:"Закрыто",contactNote:"Часы работы: понедельник–пятница 08:00–18:00, суббота 08:00–16:00, воскресенье — выходной."
+},
+uk:{reviewsKicker:"Відгуки клієнтів",reviewsTitle:"Що говорять наші клієнти?",reviewsLead:"Дякуємо за довіру та кожен залишений відгук.",reviewsCount:"2 відгуки",googleReview:"Відгук у Google",reviewPrice:"Оцінка ціни:",reviewPriceValue:"Чудова ціна",reviewService:"Послуга:",reviewServiceValue:"Заміна шин",
+gateDesc:"Оберіть мову, щоб перейти на сайт автосервісу.",mapKicker:"Як нас знайти",mapTitle:"Карта проїзду",mapDesc:"Відкрийте карту, щоб переглянути розташування та побудувати маршрут до Auto Serwis u Genia в Мілічі.",mapOpen:"Відкрити в Google Maps ↗",mapNote:"На карті виконується пошук автосервісу в Мілічі. Для точної позначки потрібні назва вулиці та номер будинку.",navServices:"Послуги",navAbout:"Про нас",navContact:"Контакти",navBook:"Записатися ↗",eyebrow:"Автосервіс · Міліч",heroTitle:'Ваш автомобіль.<br><em>Наша турбота.</em>',heroCopy:"Надійний автосервіс, професійний підхід і зрозумілі умови. Подбайте про своє авто разом із нами.",heroCta:"Записатися ↗",heroMore:"Наші послуги ↓",proof1:"Професійний підхід",proof1b:"Увага до деталей",proof2:"Зрозумілі умови",proof2b:"Без сюрпризів",proof3:"Місцевий автосервіс",proof3b:"Міліч та околиці",chip1:"Турбота про авто",chip1b:"Кожна деталь важлива",chip2:"Сервіс і ремонт",chip2b:"Практичні рішення",servicesKicker:"Наші послуги",servicesTitle:"Турбота про ваш автомобіль",servicesLead:"Від регулярного обслуговування до пошуку причини несправності — обговорімо, що потрібно вашому авто.",s1t:"Ремонт автомобілів",s1p:"Допомога з поломками та експлуатаційними проблемами.",s2t:"Огляд і сервіс",s2p:"Регулярна перевірка авто та базове обслуговування.",s3t:"Діагностика несправностей",s3p:"Перевірка симптомів і пошук джерела проблеми.",s4t:"Перевірка вузлів",s4p:"Оцінка стану важливих елементів автомобіля.",s5t:"Технічне обслуговування",s5p:"Практичні сервісні роботи відповідно до потреб авто.",s6t:"Індивідуальний підхід",s6p:"Спочатку обговорюємо проблему, потім визначаємо наступні кроки.",aboutKicker:"Чому ми",aboutTitle:"Сервіс, заснований на довірі",aboutLead:"Справний автомобіль полегшує щоденні справи. Ми цінуємо уважність, спілкування та практичні рішення.",check1:"Зрозуміле пояснення проблеми",check2:"Відповідальний підхід до ремонту",check3:"Спілкування без зайвих складнощів",panelKicker:"Ваш місцевий автосервіс",panelTitle:"Продовжуйте шлях упевнено.",panelText:"Зв’яжіться з нами та розкажіть, що потрібно вашому автомобілю.",howKicker:"Просто та зручно",howTitle:"Як записатися?",stepOne:"ЗВ’ЯЗОК",stepTwo:"ЧАС",stepThree:"СЕРВІС",step1t:"Розкажіть про проблему",step1p:"Зателефонуйте або напишіть, що сталося.",step2t:"Оберіть зручний час",step2p:"Разом узгодимо, коли вам зручно приїхати.",step3t:"Подбаємо про авто",step3p:"Обговоримо подальші кроки та можливі рішення.",contactKicker:"Поговорімо",contactTitle:"Вашому авто потрібен сервіс?",contactLead:"Зв’яжіться з майстернею, щоб дізнатися про послугу та узгодити час.",locationLabel:"Розташування",phoneLabel:"Телефон",phonePlaceholder:"+48 735 678 221",hoursLabel:"Години роботи",hoursPlaceholder:"08:00–18:00",contactNote:"Перед публікацією вкажіть номер телефону та актуальні години роботи.",contactBoxTitle:"Почнімо з розмови",contactBoxText:"Маєте питання щодо ремонту? Зв’яжіться з автосервісом.",emailBtn:"Написати e-mail ↗",emailNote:"У посиланні електронної пошти можна вказати адресу майстерні.",footerText:"Автосервіс",callBtn:"Зателефонувати ☎",weekdays:"Понеділок–п’ятниця",saturday:"Субота",sunday:"Неділя",closed:"Зачинено",contactNote:"Години роботи: понеділок–п’ятниця 08:00–18:00, субота 08:00–16:00, неділя — вихідний."
+},
+en:{reviewsKicker:"Customer reviews",reviewsTitle:"What our customers say",reviewsLead:"Thank you for your trust and for every review.",reviewsCount:"2 reviews",googleReview:"Google review",reviewPrice:"Price rating:",reviewPriceValue:"Great price",reviewService:"Service:",reviewServiceValue:"Tyre replacement",
+gateDesc:"Choose your language to enter the workshop website.",mapKicker:"Find us",mapTitle:"Directions",mapDesc:"Open the map to view the search results and plan a route to Auto Serwis u Genia in Milicz.",mapOpen:"Open in Google Maps ↗",mapNote:"The map searches for the workshop in Milicz. A street address and building number are needed to pin the exact location.",navServices:"Services",navAbout:"About us",navContact:"Contact",navBook:"Book a visit ↗",eyebrow:"Car workshop · Milicz",heroTitle:'Your car.<br><em>Our priority.</em>',heroCopy:"Reliable car servicing, a professional approach and clear communication. Take care of your car with us.",heroCta:"Book a visit ↗",heroMore:"Explore services ↓",proof1:"Professional care",proof1b:"Attention to detail",proof2:"Clear communication",proof2b:"No surprises",proof3:"Local workshop",proof3b:"Milicz and nearby",chip1:"Care for your car",chip1b:"Every detail matters",chip2:"Service and repairs",chip2b:"Practical solutions",servicesKicker:"Our services",servicesTitle:"Good care for your car",servicesLead:"From regular maintenance to finding the cause of a fault, let's discuss what your car needs.",s1t:"Car repairs",s1p:"Help with faults and everyday vehicle issues.",s2t:"Inspections and servicing",s2p:"Regular vehicle checks and basic maintenance.",s3t:"Fault diagnostics",s3p:"Checking symptoms and finding the source of a problem.",s4t:"Component checks",s4p:"Assessing the condition of important vehicle components.",s5t:"Routine maintenance",s5p:"Practical service work tailored to your car's needs.",s6t:"Personal approach",s6p:"We discuss the issue first, then agree on the next steps.",aboutKicker:"Why choose us",aboutTitle:"Service built on trust",aboutLead:"A reliable car makes everyday life easier. We value care, communication and practical solutions.",check1:"Clear explanation of the issue",check2:"A responsible approach to repairs",check3:"Straightforward communication",panelKicker:"Your local workshop",panelTitle:"Drive on with confidence.",panelText:"Get in touch and tell us what your car needs.",howKicker:"Simple and convenient",howTitle:"How to book a visit",stepOne:"CONTACT",stepTwo:"TIME",stepThree:"SERVICE",step1t:"Tell us about the issue",step1p:"Call or write to explain what is happening.",step2t:"Choose a convenient time",step2p:"We will agree on a time that works for you.",step3t:"We'll take care of your car",step3p:"We'll discuss the next steps and possible solutions.",contactKicker:"Let's talk",contactTitle:"Does your car need service?",contactLead:"Contact the workshop to ask about a service and arrange a visit.",locationLabel:"Location",phoneLabel:"Phone",phonePlaceholder:"+48 735 678 221",hoursLabel:"Opening hours",hoursPlaceholder:"08:00–18:00",contactNote:"Before publishing, add the phone number and current opening hours.",contactBoxTitle:"Let's start with a conversation",contactBoxText:"Have a question about a repair? Get in touch with the workshop.",emailBtn:"Send an email ↗",emailNote:"You can update the email link with the workshop's actual address.",footerText:"Car workshop",callBtn:"Call us ☎",weekdays:"Monday–Friday",saturday:"Saturday",sunday:"Sunday",closed:"Closed",contactNote:"Opening hours: Monday–Friday 08:00–18:00, Saturday 08:00–16:00, Sunday closed."
+}
+};
+function setLanguage(lang, closeGate=true){
+ const dict=translations[lang]||translations.pl;
+ document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(dict[key]!==undefined)el.textContent=dict[key]});
+ document.querySelectorAll("[data-i18n-html]").forEach(el=>{const key=el.dataset.i18nHtml;if(dict[key]!==undefined)el.innerHTML=dict[key]});
+ document.getElementById("languageSelect").value=lang;
+ document.getElementById("gateDesc").textContent=dict.gateDesc;
+ document.title=({pl:"Auto Serwis u Genia | Milicz",ru:"Автосервис u Genia | Милич",uk:"Автосервіс u Genia | Міліч",en:"Auto Serwis u Genia | Milicz"})[lang];
+ if(closeGate){document.getElementById("languageGate").style.display="none";document.body.classList.remove("locked")}
+}
+document.querySelectorAll(".lang-option").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.lang)));
+document.getElementById("languageSelect").addEventListener("change",e=>setLanguage(e.target.value,false));
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
